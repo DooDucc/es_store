@@ -1,0 +1,82 @@
+.nav {
+    z-index: 100;
+    .top {
+        background-color: #ff6f61;
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 90%;
+            margin: 0 auto;
+            padding: 8px 0;
+
+            .list {
+                .link {
+                    color: #fff;
+                    text-transform: uppercase;
+                    font-size: 14px;
+                    margin-right: 10px;
+                    padding: 6px 0;
+                    text-decoration: none;
+                    transition: all 0.3s ease;
+                    cursor: pointer;
+
+                    &:hover {
+                        color: #000;
+                    }
+
+                    &.active {
+                        color: #000;
+                    }
+                }
+            }
+
+            .userAccount {
+                color: #fff;
+                text-transform: uppercase;
+                font-size: 14px;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .bottom {
+        width: 90%;
+        margin: 0 auto;
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .logo {
+                font-size: 40px;
+                text-decoration: none;
+                color: #000;
+
+                span {
+                    color: #ff6f61;
+                }
+            }
+
+            .actions {
+                display: flex;
+                align-items: start;
+
+                .action {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: #ff6f61;
+                    width: 50px;
+                    height: 30px;
+                    border: 1px solid #ff6f61;
+                    border-radius: 5px;
+                    margin-left: 10px;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}

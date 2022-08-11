@@ -1,0 +1,26 @@
+.navigation {
+    background-color: #fff;
+    padding: 30px 0;
+
+    .container {
+        .content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            div {
+                display: flex;
+                align-items: center;
+                margin-bottom: 10px;
+                color: #ff6f61;
+                padding: 0px 16px;
+                border-bottom: 1px solid #ccc;
+
+                span {
+                    margin-left: 10px;
+                    color: #000;
+                }
+            }
+        }
+    }
+}

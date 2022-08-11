@@ -1,0 +1,20 @@
+.banner {
+    // width: 95%;
+    // margin: 0 auto;
+    padding: 30px 0;
+
+    .container {
+        .content {
+            display: flex;
+            justify-content: space-between;
+
+            .left {
+                width: 23%;
+            }
+
+            .right {
+                width: 75%;
+            }
+        }
+    }
+}

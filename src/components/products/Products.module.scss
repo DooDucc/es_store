@@ -1,0 +1,23 @@
+.products {
+    flex: 1;
+
+    .title {
+        width: 100%;
+        padding: 10px;
+        background-color: #fff;
+        margin-bottom: 20px;
+
+        h1 {
+            color: #ff6f61;
+            text-transform: capitalize;
+        }
+    }
+
+    .list {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        // justify-content: space-between;
+        flex-wrap: wrap;
+    }
+}

@@ -1,0 +1,32 @@
+.filter {
+    width: 20%;
+
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #ff6f61;
+    }
+
+    .container {
+        border: 1px solid #ff6f61;
+        padding: 10px;
+        border-radius: 10px;
+
+        .filter-box {
+            margin-bottom: 10px;
+
+            h2 {
+                margin-bottom: 10px;
+                color: #ff6f61;
+            }
+
+            div {
+                margin-bottom: 6px;
+
+                label {
+                    margin-left: 5px;
+                }
+            }
+        }
+    }
+}
