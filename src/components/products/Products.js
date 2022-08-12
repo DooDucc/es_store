@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState, useContext } from 'react';
 import classNames from 'classnames/bind';
@@ -15,35 +16,56 @@ const Products = ({ prodType }) => {
 
     useEffect(() => {
         let items = null;
-
-        // radio filter
-        if (context.radioChecked === 'all' || context.checkboxChecked.length === 0) {
-            setRenderItems(context.items);
-        }
-        if (context.radioChecked === 'radio1') {
-            items = context.items.filter((item) => item.price > 0 && item.price < 20);
-            setRenderItems(items);
-        }
-        if (context.radioChecked === 'radio2') {
-            items = context.items.filter((item) => item.price > 20 && item.price < 50);
-            setRenderItems(items);
-        }
-        if (context.radioChecked === 'radio3') {
-            items = context.items.filter((item) => item.price > 50 && item.price < 100);
-            setRenderItems(items);
-        }
-
-        // checkbox filter
-        if (context.checkboxChecked.length > 0) {
-            if (context.radioChecked) {
-                items = renderItems.filter((item) => context.checkboxChecked.includes(item.category));
-                setRenderItems(items);
-            } else {
-                items = context.items.filter((item) => context.checkboxChecked.includes(item.category));
-                setRenderItems(items);
+        if (context.filter.category.length === 0) {
+            switch (context.filter.price) {
+                case 'all':
+                    setRenderItems(context.items);
+                    break;
+                case 'radio1':
+                    items = context.items.filter((item) => item.price > 0 && item.price < 20);
+                    setRenderItems(items);
+                    break;
+                case 'radio2':
+                    items = context.items.filter((item) => item.price > 20 && item.price < 50);
+                    setRenderItems(items);
+                    break;
+                case 'radio3':
+                    items = context.items.filter((item) => item.price > 50 && item.price < 100);
+                    setRenderItems(items);
+                    break;
+                default:
+            }
+        } else {
+            switch (context.filter.price) {
+                case 'all':
+                    items = context.items.filter((item) => context.filter.category.includes(item.category));
+                    setRenderItems(items);
+                    break;
+                case 'radio1':
+                    items = renderItems.filter((item) => {
+                        if (context.filter.category.includes(item.category) && item.price > 0 && item.price < 20)
+                            return item;
+                    });
+                    setRenderItems(items);
+                    break;
+                case 'radio2':
+                    items = renderItems.filter((item) => {
+                        if (context.filter.category.includes(item.category) && item.price > 20 && item.price < 50)
+                            return item;
+                    });
+                    setRenderItems(items);
+                    break;
+                case 'radio3':
+                    items = renderItems.filter((item) => {
+                        if (context.filter.category.includes(item.category) && item.price > 50 && item.price < 100)
+                            return item;
+                    });
+                    setRenderItems(items);
+                    break;
+                default:
             }
         }
-    }, [context.radioChecked, context.checkboxChecked]);
+    }, [context.filter]);
 
     return (
         <div className={cx('products')} style={prodType ? {} : { marginTop: '55px' }}>

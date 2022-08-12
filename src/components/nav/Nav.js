@@ -1,13 +1,16 @@
-import React from 'react';
+import { useContext } from 'react';
 import { Link, useResolvedPath, useMatch } from 'react-router-dom';
 import { Favorite, ShoppingCart } from '@mui/icons-material';
 
 import Search from '../search/Search';
+import { Context } from '../../context/Context';
 
 import './Nav.scss';
 // https://raw.githubusercontent.com/DooDucc/fakeApi/master/db.json
 
 const Nav = () => {
+    const context = useContext(Context);
+
     return (
         <div className="nav">
             <div className="top">
@@ -47,7 +50,7 @@ const Nav = () => {
                         </div>
                         <Link to="/cart" className="action">
                             <ShoppingCart />
-                            <span>(0)</span>
+                            <span>{context.cartList.length}</span>
                         </Link>
                     </div>
                 </div>

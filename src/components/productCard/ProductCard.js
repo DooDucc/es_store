@@ -1,12 +1,15 @@
-import React from 'react';
+import { useContext } from 'react';
 import classNames from 'classnames/bind';
 import { Star, ShoppingCart, Favorite, Search } from '@mui/icons-material';
 
 import styles from './ProductCard.module.scss';
+import { Context } from '../../context/Context';
 
 const cx = classNames.bind(styles);
 
 const ProductCard = ({ item }) => {
+    const context = useContext(Context);
+
     return (
         <div className={cx('product-card')}>
             <div className={cx('container')}>
@@ -28,7 +31,7 @@ const ProductCard = ({ item }) => {
                         <span>$</span>
                         {item.price}
                     </p>
-                    <button>
+                    <button onClick={() => context.addAndIncreaseCartItem(item)}>
                         <ShoppingCart className={cx('cart')} />
                         <span>buy now</span>
                     </button>
@@ -37,7 +40,7 @@ const ProductCard = ({ item }) => {
 
             <div className={cx('modal')}>
                 <div className={cx('container')}>
-                    <ShoppingCart className={cx('icon')} />
+                    <ShoppingCart className={cx('icon')} onClick={() => context.addAndIncreaseCartItem(item)} />
                     <Favorite className={cx('icon')} />
                     <Search className={cx('icon')} />
                 </div>

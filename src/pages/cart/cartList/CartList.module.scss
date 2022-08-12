@@ -1,0 +1,26 @@
+.cart-list {
+    width: 68%;
+    padding: 15px;
+    background-color: #fff;
+
+    .container {
+        .cart-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            div {
+                flex: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 1px solid #ccc;
+                color: #000;
+                text-transform: capitalize;
+                font-weight: bold;
+                font-size: 18px;
+                padding: 5px;
+            }
+        }
+    }
+}
