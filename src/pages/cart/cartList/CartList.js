@@ -12,7 +12,7 @@ const CartList = () => {
 
     return (
         <>
-            {context.cartList.lenght > 0 ? (
+            {context.cartList.length > 0 ? (
                 <div className={cx('cart-list')}>
                     <div className={cx('container')}>
                         <div className={cx('cart-row')}>

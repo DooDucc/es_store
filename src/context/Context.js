@@ -25,6 +25,7 @@ const ContextProvider = ({ children }) => {
             );
         } else {
             setCartList([...cartList, { ...product, quantity: 1 }]);
+            alert('The product is added to the cart list');
         }
     };
 
