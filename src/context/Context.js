@@ -5,6 +5,7 @@ const Context = createContext();
 const ContextProvider = ({ children }) => {
     const [items, setItems] = useState([]);
     const [cartList, setCartList] = useState([]);
+    const [totalPrice, setTotalPrice] = useState(0);
 
     const initFilter = {
         price: 'all',
@@ -12,8 +13,6 @@ const ContextProvider = ({ children }) => {
     };
 
     const [filter, setFilter] = useState(initFilter);
-
-    const totalPrice = cartList.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
     const addAndIncreaseCartItem = (product) => {
         const existProduct = cartList.find((item) => item.id === product.id);
@@ -58,6 +57,7 @@ const ContextProvider = ({ children }) => {
         decreaseAndRemoveCartItem,
         removeCartItem,
         totalPrice,
+        setTotalPrice,
     };
 
     return <Context.Provider value={value}>{children}</Context.Provider>;

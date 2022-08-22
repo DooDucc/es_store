@@ -1,4 +1,5 @@
-import { useContext } from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useContext, useEffect } from 'react';
 import classNames from 'classnames/bind';
 
 import styles from './CartSum.module.scss';
@@ -8,6 +9,11 @@ const cx = classNames.bind(styles);
 
 const CartSum = () => {
     const context = useContext(Context);
+
+    useEffect(() => {
+        const totalPrice = context.cartList.reduce((acc, item) => acc + item.price * item.quantity, 0);
+        context.setTotalPrice(totalPrice);
+    }, [context.cartList]);
 
     return (
         <div className={cx('cart-sum')}>

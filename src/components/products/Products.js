@@ -12,7 +12,7 @@ const cx = classNames.bind(styles);
 
 const Products = ({ prodType }) => {
     const context = useContext(Context);
-    const [renderItems, setRenderItems] = useState(context.items);
+    const [renderItems, setRenderItems] = useState([]);
 
     useEffect(() => {
         let items = null;
